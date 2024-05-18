@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add this line -->
+    <title>Clean India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<!-- Rest of your code -->
+
+<body>
+    <div class="container">
+        <header>Clean India Survey Form</header>
+        <div class="progress-bar">
+            <!-- Your progress bar code -->
+        </div>
+        <div class="form-outer">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <!-- Replace with your Access Key -->
+                <input type="hidden" name="access_key" value="aa3d8931-5f74-42bd-a28a-713a06f61627">
+                <div class="page slide-page">
+                    <div class="title">
+                        Basic Info:
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            FULL Name
+                        </div>
+                        <input type="text" name="full_name">
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            State
+                        </div>
+                        <select name="state" id="state">
+                            <!-- Options will be dynamically populated -->
+                        </select>
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Village Name
+                        </div>
+                        <select name="village_name" id="village">
+                            <!-- Options will be dynamically populated -->
+                        </select>
+                    </div>
+                    
+                    
+                    
+                    <div class="field">
+                        <button class="firstNext next">Next</button>
+                    </div>
+                </div>
+                <!-- Add other pages and fields -->
+                <div class="page">
+                    <div class="title">
+                        Contact Info:
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Email Address
+                        </div>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Phone Number
+                        </div>
+                        <input type="tel" name="phone">
+                    </div>
+                    
+
+                    
+                    
+                    <div class="field btns">
+                        <button class="prev-1 prev">Previous</button>
+                        <button class="next-1 next">Next</button>
+                    </div>
+                </div>
+                <!-- Add other pages and fields -->
+                <div class="page">
+                    <div class="title">
+                        About Waste Details
+                    </div>
+                    
+                    <div class="field">
+                        <div class="label">
+                            Area_Address with Landmark
+                        </div>
+                        <input type="text" name="Area_Address">
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Waste Quantity in kg (approx)
+                        </div>
+                        <input type="number" name="Waste Quantity">
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Waste Type
+                        </div>
+                        <select name="pesticide_type">
+                            <option value="Plastic Waste">Plastic Waste</option>
+                            <option value="Dry Waste">Dry Waste</option>
+                            <option value="Wet Waste">Wet Waste</option>
+                            <option value="Open Garbage">Open Garbage</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Drive link
+                        </div>
+                        <input type="url" name="Image Link">
+                    </div>
+                    
+                    <div class="field btns">
+                        <button class="prev-2 prev">Previous</button>
+                        <button class="next-2 next">Next</button>
+                    </div>
+                </div>
+                <!-- Add other pages and fields -->
+                <div class="page">
+                    <div class="title">
+                        Rating
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Review for Application
+                        </div>
+                        <input type="text" name=" Review for Application">
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Rate the Application
+                        </div>
+                        <select name="production_rate">
+                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                            <option value="⭐⭐⭐">⭐⭐⭐</option>
+                            <option value="⭐⭐">⭐⭐</option>
+                            <option value="⭐">⭐</option>
+                        </select>
+                    </div>
+                    <div class="field btns">
+                        <button class="prev-3 prev">Previous</button>
+                        <button type="submit">Submit</button>
+                        <!-- hCaptcha Spam Protection -->
+                        <div style="position: relative; left: 5px ; bottom: -10px;" class="h-captcha" data-captcha="true"></div>
+
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- Required for hCaptcha -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script src="script.js"></script>
+   
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Village data for India
+            const villageData = {
+                "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Kakinada", "Rajamahendravaram", "Tirupati", "Anantapur", "Kadapa"],
+                "Arunachal Pradesh": ["Itanagar", "Naharlagun", "Pasighat", "Roing", "Tezu", "Ziro", "Along", "Daporijo", "Yingkiong", "Tawang"],
+                "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Bongaigaon", "Dhubri", "Tezpur", "Sivasagar"],
+                "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Arrah", "Begusarai", "Katihar", "Munger"],
+                "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Durg", "Raigarh", "Rajnandgaon", "Jagdalpur", "Ambikapur", "Dhamtari"],
+                "Goa": ["Panaji", "Margao", "Vasco da Gama", "Ponda", "Mapusa", "Bicholim", "Curchorem", "Sanquelim", "Canacona", "Quepem"],
+                "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Nadiad"],
+                "Haryana": ["Faridabad", "Gurgaon", "Panipat", "Ambala", "Yamunanagar", "Rohtak", "Hisar", "Karnal", "Sonipat", "Panchkula"],
+                "Himachal Pradesh": ["Shimla", "Mandi", "Solan", "Dharamshala", "Kullu", "Chamba", "Sirmaur", "Una", "Bilaspur", "Hamirpur"],
+                "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro Steel City", "Deoghar", "Phusro", "Hazaribagh", "Giridih", "Ramgarh", "Medininagar"],
+                "Karnataka": ["Bangalore", "Mysore", "Hubli-Dharwad", "Mangalore", "Belgaum", "Gulbarga", "Davanagere", "Bellary", "Bijapur", "Shimoga"],
+                "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kollam", "Thrissur", "Kannur", "Alappuzha", "Palakkad", "Kottayam", "Manjeri"],
+                "Madhya Pradesh": ["Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa"],
+                "Maharashtra": ["Wardha", "Sevagram", "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Thane", "Amravati", "Kolhapur", "Nanded"],
+                "Manipur": ["Imphal", "Thoubal", "Kakching", "Mayang Imphal", "Churachandpur", "Bishnupur", "Senapati", "Ukhrul", "Lilong", "Wangjing"],
+                "Meghalaya": ["Shillong", "Tura", "Nongstoin", "Jowai", "Baghmara", "Williamnagar", "Nongpoh", "Resubelpara", "Mairang", "Amlarem"],
+                "Mizoram": ["Aizawl", "Lunglei", "Saiha", "Champhai", "Serchhip", "Kolasib", "Lawngtlai", "Saitual", "Khawzawl", "Hnahthial"],
+                "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha", "Zunheboto", "Phek", "Mon", "Chumukedima", "Tseminyu"],
+                "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Brahmapur", "Sambalpur", "Puri", "Balasore", "Bhadrak", "Baripada", "Jharsuguda"],
+                "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Hoshiarpur", "Mohali", "Batala", "Pathankot", "Moga"],
+                "Rajasthan": ["Jaipur", "Jodhpur", "Kota", "Bikaner", "Ajmer", "Udaipur", "Bhilwara", "Alwar", "Sikar", "Pali"],
+                "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan", "Singtam", "Rangpo", "Soreng", "Jorethang", "Ravangla", "Soreng"],
+                "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Tiruppur", "Salem", "Erode", "Tirunelveli", "Vellore", "Thoothukudi"],
+                "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Ramagundam", "Khammam", "Mahbubnagar", "Nalgonda", "Adilabad", "Suryapet"],
+                "Tripura": ["Agartala", "Dharmanagar", "Udaipur", "Ambassa", "Kailasahar", "Belonia", "Teliamura", "Khowai", "Sonamura", "Bishalgarh"],
+                "Uttar Pradesh": ["Lucknow", "Kanpur", "Ghaziabad", "Agra", "Varanasi", "Allahabad", "Meerut", "Bareilly", "Aligarh", "Moradabad"],
+                "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Rudrapur", "Kashipur", "Rishikesh", "Pauri", "Ramnagar", "Kotdwar"],
+                "West Bengal": ["Kolkata", "Asansol", "Siliguri", "Durgapur", "Bardhaman", "Malda", "Baharampur", "Kharagpur", "Habra", "Shantipur"]
+            };
+    
+            // Indian states
+            const indianStates = Object.keys(villageData);
+    
+            const stateSelect = document.getElementById('state');
+            const villageSelect = document.getElementById('village');
+    
+            // Populate state dropdown
+            indianStates.forEach(function (state) {
+                const option = document.createElement('option');
+                option.text = state;
+                stateSelect.add(option);
+            });
+    
+            // Event listener for state select change
+            stateSelect.addEventListener('change', function () {
+                const selectedState = stateSelect.value;
+                const villages = villageData[selectedState] || [];
+    
+                // Clear previous options
+                villageSelect.innerHTML = '';
+    
+                // Populate village options (limit to 10 villages)
+                const limitedVillages = villages.slice(0, 10);
+                limitedVillages.forEach(function (village) {
+                    const option = document.createElement('option');
+                    option.text = village;
+                    villageSelect.add(option);
+                });
+            });
+    
+            // Trigger change event to populate villages initially
+            stateSelect.dispatchEvent(new Event('change'));
+        });
+    </script>
+    
+    
+    
+
+</body>
+
+</html>
